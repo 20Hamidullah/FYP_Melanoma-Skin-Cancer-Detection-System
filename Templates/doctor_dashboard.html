@@ -1,0 +1,327 @@
+{% extends 'MainTemplate.html' %}
+
+{% block links %} 
+
+{% load static %}
+
+
+<link rel="shortcut" href="images/doctor.webp">
+<link rel="shortcut icon" href="images/doctor.webp"> 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<!-- CSS only For Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    .bgImg {
+      background-size: cover;
+    }
+    body {
+margin: 0;
+padding: 0;
+font-family: montserrat;
+}
+
+    .mainDiv {
+        
+        width: 80%;
+        height:auto;
+        position: absolute;
+        padding: 18px 0px;
+        background-color:rgba(244, 244, 244, 0.868);
+        right: 10%;
+        margin-top: 30px;
+        border-radius: 8px;
+        box-shadow: 5px 7px 7px 0px #00000023;
+        
+        
+    }
+
+    h2 {
+        text-align: center;
+        
+        
+        color: #3b3b3b;
+        padding-top: 10px;
+        
+    }
+
+    h3 {
+        font-size: 17px;
+        color:#3b3b3b;
+        margin-top: 10px;
+        margin-left: 2%;
+    }
+
+   
+
+    .sectionHeading {
+        font-size: 17px;
+        color:#fe9e20;
+        margin-top: 10px;
+        margin-left: 2%;
+        
+        
+    }
+
+    .patientName {
+        width: 45%;
+        height: 50px;
+        padding: 5px;
+        margin-top: 25px;
+        border-radius: 3px;
+        margin-left: 5.3%;
+
+        
+     
+    }
+
+    .caseNo {
+        width: 20%;
+        height: 50px;
+        
+        padding: 5px;
+        margin-top: 25px;
+        margin-left: 15px;
+        border-radius: 3px;
+     
+    }
+
+    .detailsHeading {
+        width: 30%;
+        height: auto;
+        position: absolute;
+        padding:3px 0px;
+        background-color:rgba(244, 244, 244, 0.868);
+        left: 10%;
+        margin-top: 17%;
+        border-radius: 8px 8px 0px 0px;
+        text-align: center;
+        box-shadow: 5px 7px 7px 0px #00000023;
+        
+        
+    }
+
+    .details {
+        width: 30%;
+        height:50%;
+        position: absolute;
+        padding: 18px 0px;
+        background-color:rgba(244, 244, 244, 0.868);
+        left: 10%;
+        margin-top: 20.1%;
+        border-radius: 0px 0px 8px 8px;
+        text-align: left;
+        padding-left: 10px;
+        box-shadow: 5px 7px 7px 0px #00000023;
+        
+
+
+    }
+
+    .DPandPredictionHeading {
+        width: 49%;
+        height: auto;
+        position: absolute;
+        padding:3px 0px;
+        background-color:rgba(244, 244, 244, 0.868);
+        right: 10%;
+        margin-top: 17%;
+        border-radius: 8px 8px 0px 0px;
+        text-align: center;
+        box-shadow: 5px 7px 7px 0px #00000023;
+    }
+    
+    .DPandPrediction {
+        width: 49%;
+        height:50%;
+        position: absolute;
+        padding: 1px 0px;
+        background-color:rgba(244, 244, 244, 0.868);
+        right: 10%;
+        margin-top: 20.1%;
+        border-radius: 0px 0px 8px 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 5px 7px 7px 0px #00000023;
+        
+    }
+
+    
+
+    .profileImage {
+        width:25% ;
+        height: 50%;
+        background-color: #7E7E7E;
+        position: relative;
+        margin-top: -13%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        
+        
+        
+    }
+
+    .flexClass {
+        display:flex;
+        flex-direction:row;
+        
+        
+        
+    }
+
+    .profilePicCSS {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+   .iconWhite {
+    color: #c04747;
+   }
+
+   .PredictBtn {
+    border: none;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    cursor: pointer;
+    background-color: #ffa125;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+   .PredictBtnDiv {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin-top: 30%;
+   }
+
+
+.footerstyle{
+    position: relative;
+    top: 720px;
+}
+.Navdiv{
+    background-color: rgba(0, 0, 0,0.8);
+    width: 100%;
+    height: 100px;
+}
+
+.foot{
+    margin-top: 47%;
+}
+
+</style>
+
+
+
+{% endblock %}
+
+
+{% block title %} Doctor Dashboard {% endblock %}
+
+
+{% block content %} 
+
+
+{% include 'doctor_navbar.html' %}
+
+
+ <!-- JavaScript Bundle with Popper for Bootstrap -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+ <div class="mainDiv"> <!-- main div full container-->
+   <p class="fw-semibold font-monospace text-center fs-2">Doctor's Dashboard</p>
+
+         
+
+         <div class="flexClass">
+
+                 <div class="patientName">
+                   <div class="flexClass"><h4 class="sectionHeading">DOCTOR NAME:   </h4>&nbsp;<h3>{{doctor_name}}</h3></div>
+
+                 </div>
+
+                 <div class="caseNo">
+                     <div class="flexClass"> <h4 class="sectionHeading">CASES REPLIED:   </h4>&nbsp;<h3>
+
+                        {% if doc_replied %}
+                            {{doc_replied}}
+                        {% else %}
+                            {{0}}
+                        {% endif %}
+
+                    </h3></div>
+
+                 </div>
+
+                 <div class="caseNo">
+                     <div class="flexClass"> <h4 class="sectionHeading">NEW CASES:  </h4>&nbsp;<h3>{{doc_respond}}</h3><a href="">
+                     <!-- <a href="doctorCase.php">   <i class="fa fa-envelope fw-bold ms-3 iconWhite"></i> </a> -->
+                     </a> </div>
+
+                 </div>
+
+
+         </div>
+
+     
+
+ </div>
+
+ <div class="flexClass">
+
+     
+
+     <div class="detailsHeading">
+         <h4 class="sectionHeading">DETAILS 
+             <a href="patient-record-edit.html">
+                 
+             </a>
+         </h4>
+     </div>
+
+     <div class="details">
+         <div class="flexClass"><h4 class="sectionHeading">AGE:   </h4>&nbsp;<h3>{{doctor_age}}</h3></div>
+         <div class="flexClass"><h4 class="sectionHeading">QUALIFICATION   </h4>&nbsp;<h3>{{doctor_qualification}}</h3></div>
+         <div class="flexClass"><h4 class="sectionHeading">GENDER:   </h4>&nbsp;<h3>{{doctor_gender}}</h3></div>
+         <div class="flexClass"><h4 class="sectionHeading">JOB STATUS   </h4>&nbsp;<h3>{{doctor_jobstatus}}</h3></div>
+         <div class="flexClass"><h4 class="sectionHeading">MOBILE NO:   </h4>&nbsp;<h3>{{doctor_mobile}}</h3></div>
+         <div class="flexClass"><h4 class="sectionHeading">EMAIL:   </h4>&nbsp;<h3>{{doctor_email}}</h3></div>
+     </div>
+
+ 
+         
+     <div class="DPandPredictionHeading">
+         <h4 class="sectionHeading">PROFILE PICTURE</h4>
+     </div>
+
+     <div class="DPandPrediction">
+         <div class="profileImage">
+             <img class="profilePicCSS" src="{{doctor_image.url}}" alt="profile picture">
+         </div>
+
+         <form method="post" action="/doc_available_cases/" class="PredictBtnDiv">
+            {% csrf_token %}
+            <div>
+                <button class="PredictBtn" type="submit">Available Cases</button>
+            </div>
+        </form>
+         
+     </div>
+     
+
+ </div>
+
+ <div class="foot"> {% include 'footer.html' %} </div>
+
+{% endblock %}

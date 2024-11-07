@@ -1,0 +1,113 @@
+
+		body{
+			background: whitesmoke;
+			
+		}
+		.container{
+			margin-bottom:5%;
+			
+		}
+		.profile-area{
+			display: flex;
+			padding-top: 100px;
+			height:100%;
+			width:40px;
+		}
+		.card{
+			box-shadow: 0 0 30px rgba(0,0,0,0.5);
+			
+			border-radius:15px;
+			height:470px;
+			
+			
+		}
+		.img1 img{
+			height: 170px;
+			border-top-right-radius:15px;
+			border-top-left-radius:15px;
+			width:100%;
+		}
+		.img2 img{
+			position: relative;
+			display:block;
+			margin-left:auto;
+			margin-right:auto;
+			z-index:1;
+			width:140px;
+			height:140px;
+			border-radius:50%;
+			border: 7px solid #fff;
+			margin-top:-80px;
+		}
+		.doctorimage{
+			width: 100px;
+			height: auto;
+			align-self: center;
+		}
+		.card:hover .img2 img{
+			border-color:darkcyan;
+			transition: .7s;
+		}
+		.main-text{
+			padding: 30px 0;
+			text-align: center;
+			height: 200px;
+		}
+		.main-text h2{
+			text-transform:uppercase;
+			font-weight:900;
+			font-size:20px;
+			margin: 0 0 20px;
+		}
+		.main-text p{
+			font-size:16px;
+			padding: 0 35px;
+		}
+		.consultbtn{
+			text-align:center;
+			padding-bottom:10px;
+			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			font-size: 16px;
+  			margin: 4px 2px;
+  			transition-duration: 0.4s;
+  			cursor: pointer;
+ 			background-color: white;
+  			color: black;
+ 			border: 2px solid darkcyan;
+			border-radius: 10px;
+		}
+		.consultbtn:hover{
+			background-color: darkcyan;
+ 			color: white;
+		}
+		.btndiv
+		{
+			margin-left:34%;
+			width: 140px;
+			margin-bottom: 3%;
+		}
+		.header{
+			background-color:navy;
+			height:350px;
+			width:100%;
+			
+		}
+		.headertxt
+		{
+			text-align: center;
+			font-family: montserrat;
+			font-size: bold;
+			color: white;
+			padding-top: 70px;
+		}
+		.headertext2
+		{
+			text-align:center;
+			font-family: montserrat;
+			color:white;
+			padding-top: 30px;
+			font-size:16px;
+		}
+	

@@ -1,0 +1,32 @@
+{% extends 'MainTemplate.html' %}
+{% block title %} Edit Doctor Record {% endblock %}
+{% block links %}
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="/static/css/style.css">
+{% endblock %}
+{% block content %} 
+<div class="container">
+   <div class="admin-product-form-container">
+
+        <form action="/doctor_record_edit/{{ doctor.id }}/" method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
+         <h3>Update Doctor Record</h3>
+         <input type="text" value="{{doctor.doctor_name}}" name="doctor_name" class="box">
+         <input type="email" value="{{doctor.doctor_email}}" name="doctor_email" class="box">
+         <input type="text" value="{{doctor.doctor_mobile}}" name="doctor_mobile" class="box">
+         <input type="text" value="{{doctor.doctor_qualification}}" name="doctor_qualification" class="box">
+         <input type="text" value="{{doctor.doctor_age}}" name="doctor_age" class="box">
+         <input type="text" value="{{doctor.doctor_password}}" name="doctor_password" class="box">
+         <input type="text" value="{{doctor.doctor_jobstatus}}" name="doctor_jobstatus" class="box">
+         <input type="radio" name="doctor_gender" value="male" id="id_male" style="width:20px;height:22px;">
+         <span style="font-size:18px;padding-right:100px;padding-left:10px"><label for="id_male">Male</label></span>
+         <input type="radio" name="doctor_gender" value="female" style="width:20px;height:22px;">
+         <span style="font-size:18px;padding-left:10px"><label for="id_female">Female</label></span>
+         <input type="file"  name="doctor_image" class="box">
+         <input type="submit" class="btn" name="add_doctor" value="Edit doctor">
+      </form>
+   </div>
+{% endblock %}

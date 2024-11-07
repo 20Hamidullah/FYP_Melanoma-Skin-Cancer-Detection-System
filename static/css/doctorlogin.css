@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form{
+    width: 300px;
+    height: 500px;
+    position:relative;
+    top:5%;
+    left:10%;
+    margin-top:50px;
+    margin-bottom:82px;
+}
+
+.heading{
+    color:white;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 80px;
+    font-weight: 300;
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+.img2{
+
+    width: 80px;
+    height: 80px;
+    margin-left: 9px;
+    margin-top: -50px;
+    border-radius: 50px;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 40%;
+
+}
+.btn{
+    margin-left:40%;
+    margin-top:20px;
+}   
+.submain{
+    margin-top:85px;
+}

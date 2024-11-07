@@ -1,0 +1,373 @@
+
+{% load static %}
+
+<html>
+    <head>
+
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+    <title>Registerd Cases</title>
+    <link rel="shortcut" href="images/patient1.png">
+    <link rel="shortcut icon" href="images/patient1.png">
+
+    <style>
+        .tablecss{
+            background-color: aquamarine;
+            align-self: center;
+            position: relative;
+            top: 35px;
+            width: 90%;
+            height: auto;
+            left: 4.5%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+            padding: 2px 8px 0 8px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 100px;
+        }
+        
+        
+h2{
+    text-align: center;
+    padding: 10px;
+}
+table{
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 10px;
+    margin: auto;
+    border-radius: 10px;
+    table-layout: fixed;
+    width: 100%;
+}
+th,td{
+    border: 1px solid #f2f2f2;
+    padding: 10px 12px;
+    text-align: center;
+    color: gray;
+}
+
+th{
+    text-transform: uppercase;
+    font-weight: 300;
+
+}
+
+  
+  .table td {
+    word-wrap: break-word;
+  }
+
+.tdFont {
+    font-size: small;
+    font-weight: bold;
+}
+.headerdiv{
+
+    width: 100%;
+    height: 10%; 
+    background-color: antiquewhite;
+    margin-top: 20px;
+    margin-bottom: 40px;
+
+
+}
+.email-style{
+    background-color: aliceblue;
+    padding: 5px;
+}
+.undertablediv{
+    margin-top: 50px;
+}
+
+
+/* Remarks table css */
+
+
+.tablecss2{
+    background-color: aquamarine;
+    align-self: center;
+    position: relative;
+    top: 50px;
+    width: 60%;
+    height: auto;
+    left: 20%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+    padding: 2px 8px 0 8px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+h2{
+    text-align: center;
+    padding: 10px;
+}
+table{
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 10px;
+    margin: auto;
+    border-radius: 10px;
+}
+th,td{
+    border: 1px solid #f2f2f2;
+    padding: 10px 12px;
+    text-align: center;
+    color: gray;
+}
+th{
+    text-transform: uppercase;
+    font-weight: 300;
+
+}
+
+.tdFont {
+    font-size: small;
+    font-weight: bold;
+}
+.headerdiv{
+
+    width: 100%;
+    height: 10%; 
+    background-color: antiquewhite;
+    margin-top: 20px;
+    margin-bottom: 40px;
+
+
+}
+
+.doctor_remark_table{
+
+    table-layout: fixed;
+    width: 100%;
+}
+
+#break_doctor_remark_table{
+
+      word-wrap: break-word;
+}
+
+.email-style{
+    background-color: aliceblue;
+    padding: 5px;
+}
+.undertablediv{
+    margin-top: 50px;
+}
+
+ 
+body {
+margin: 0;
+padding: 0;
+font-family: montserrat;
+}
+
+.collapse{
+margin-left: 28%;
+text-align: center;
+}
+
+.nav-item .nav-link{
+text-decoration: none;
+color: rgb(255, 255, 255);
+text-transform: uppercase;
+font-size: 18px;
+margin: 0 10px;
+text-align: center;
+justify-content: center;
+transition: all .6s ease;
+}
+
+.nav-item .nav-link:hover {
+border: 1px;
+border-color: rgb(2, 2, 2);
+text-decoration: underline;
+border-radius: 5px;
+box-shadow: rgba(15, 12, 6, 0.2) 0px 0px 10px;
+
+}
+
+
+
+#AI{
+color:white;
+}
+
+.navbar-brand{
+font-family: montserrat;
+text-decoration: none;
+color: rgb(255, 255, 255);
+text-transform: uppercase;
+font-size: 18px;
+margin: 0 10px;
+transition: all .6s ease;        
+} 
+
+.navbar-brand:hover{
+
+color: antiquewhite;
+}
+ .dropdown:hover .dropdown-menu{
+        display: block;
+      
+      }
+
+      .navdiv{
+
+        background-color: black;
+      }
+
+      .active a{
+
+        border:  1px solid;
+        border-color: aliceblue;
+
+}
+
+      
+        </style>
+        
+
+    </head>
+    
+<body>
+
+    <div class="navdiv">
+
+    <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container-fluid">
+          
+          <a class="navbar-brand" href="/home/">Melanoma Detector System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item {% if request.path == '/login-dashboard/' %} active {% endif %}">
+                    <a class="nav-link" href="/patient_dashboard/">Dashboard</a>
+                </li>
+        
+                <li class="nav-item {% if request.path == '/patient_logout/' %} active {% endif %}">
+                    <a class="nav-link" href="/patient_logout/">Logout</a>
+                </li>
+        
+                <li class="nav-item {% if request.path == '/contact/' %} active {% endif %}">
+                    <a class="nav-link" href="/contact/">Contact</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <h2 style="color:	#C0C0C0;margin-top: 15px;">Scroll Down for doctor_Remarks</h2>
+
+    <div class="tablecss">
+            <div class="headerdiv">
+                <h2>All Registerd Cases</h2>
+            </div>
+        <div class="centerdiv">
+                <div class="responsive-div">
+                    <table>
+                        <thead>
+                            <tr>
+                                <!-- table header fields -->
+                                <td class='tdFont'>Case No</td>
+                                <td class='tdFont'>Model Prediction</td>
+                                <td class='tdFont'>Abdominal Problem</td>
+                                <td class='tdFont'>Heart Problem</td>
+                                <td class='tdFont'>Any Serious Injury</td>
+                                <td class='tdFont'>Kidney/Bladder Infection</td>
+                                <td class='tdFont'>Asthma</td>
+                                <td class='tdFont'>Seasonal Skin Alergy</td>
+                                <td class='tdFont'>Broken Bones</td>
+                                <td class='tdFont'>Visited Doctor Before</td>
+                                <td class='tdFont'>Delete</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in complete_query %}
+                            <tr>
+                                <td>
+                                    {{i.case_no}}</td>
+                                    <td>{{i.model_prediction}}</td>
+                                    <td>{{i.abdominalproblem}}</td>
+                                    <td>{{i.heartproblem}}</td>
+                                    <td>{{i.anyseriousinjury}}</td>
+                                    <td>{{i.kidneybladderinfection}}</td>
+                                    <td>{{i.asthma}}</td>
+                                    <td>{{i.skinalergy}}</td>
+                                    <td>{{i.brokenbones}}</td>
+                                    <td>{{i.visiteddoctorbefore}}
+                                    <!-- pass patient case number to patientCaseDelete page -->
+                                    <td><a class="btn btn-outline-danger" href="{% url 'patient_delete_record' i.case_no %}">
+                                    DELETE</a></td>
+                                </td>
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="undertablediv"><br><br></div>
+    </div>
+
+
+
+   
+
+    <!-- Doctor Remarks Table -->
+
+    <div class="tablecss2">
+            <div class="headerdiv">
+                <h2>Doctor Remarks</h2>
+            </div>
+                <div class="centerdiv">
+                    <div class="responsive-div">
+                        <table class="doctor_remark_table">
+                            <thead>
+                                <tr>
+                                    <td class='tdFont'>Case No</td>
+                                    <td class='tdFont'>Doctor Name</td>
+                                    <td class='tdFont'>Doctor Email</td>
+                                    <td id="break_doctor_remark_table" class='tdFont'>Case Remarks</td>
+                                    
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for n in case_no_complete %}
+                                <tr>
+                                    <td>{{n.case_no}}</td>
+                                    <td>{{n.doctor_name}}</td>
+                                    <td>{{n.doctor_email}}</td>
+                                    <td id="break_doctor_remark_table">{{n.doctor_remarks}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="undertablediv"><br><br></div>
+
+    </div>
+</body>
+</html>

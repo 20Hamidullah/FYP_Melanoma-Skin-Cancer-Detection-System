@@ -1,0 +1,553 @@
+{% extends 'MainTemplate.html' %}
+
+
+{% block title %} New Case {% endblock %}
+
+
+
+
+{% block links %} 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="shortcut" href="/static/images/patient1.png">
+    <link rel="shortcut icon" href="/static/images/patient1.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+
+    
+    <script>
+        function showConsultAlert() {
+            Swal.fire({
+                title: 'Consult a Doctor',
+                text: 'We are currently working on contracts with Dermatologists to process you medical cases',
+                icon: 'info',
+                confirmButtonText: 'OK',
+                background: 'rgba(255, 255, 255, 0.8)',  // White background with some transparency
+                backdrop: `
+                    rgba(0, 0, 0, 0.4)  // Black backdrop with transparency
+                `,
+                allowOutsideClick: true,
+                customClass: {
+                    popup: 'swal-popup-class',
+                    confirmButton: 'swal-confirm-btn'
+                }
+            });
+        }
+    </script>
+    <style>
+        .mainDiv {
+            
+            width: 80%;
+            height:auto;
+            position: absolute;
+            padding: 18px 0px;
+            background-color:rgba(244, 244, 244, 0.868);
+            right: 10%;
+            margin-top: 40px;
+            border-radius: 8px;
+            box-shadow: 5px 7px 7px 0px #00000023;
+            
+            
+        }
+
+        h2 {
+            text-align: center;
+            
+            
+            color: #3b3b3b;
+            padding-top: 10px;
+            
+        }
+
+        h3 {
+            font-size: 18px;
+            color:#3b3b3b;
+            margin-top: 10px;
+            margin-left: 2%;
+        }
+
+        .sectionHeading {
+            font-size: 18px;
+            color:#fe9e20;
+            margin-top: 10px;
+            margin-left: 2%;
+            
+            
+        }
+
+        .patientName {
+            width: 45%;
+            height: 50px;
+            padding: 5px;
+            margin-top: 2px;
+            border-radius: 3px;
+            margin-left: 5.3%;
+
+            
+         
+        }
+
+        .caseNo {
+            width: 20%;
+            height: 50px;
+            
+            padding: 5px;
+            margin-top: 2px;
+            margin-left: 15px;
+            border-radius: 3px;
+         
+        }
+
+        .detailsHeading {
+            width: 30%;
+            height: auto;
+            position: absolute;
+            padding:3px 0px;
+            background-color:rgba(244, 244, 244, 0.868);
+            left: 10%;
+            margin-top: 17%;
+            border-radius: 8px 8px 0px 0px;
+            text-align: center;
+            box-shadow: 5px 7px 7px 0px #00000023;
+            
+            
+        }
+
+        .details {
+            width: 30%;
+            height:50%;
+            position: absolute;
+            padding: 18px 0px;
+            background-color:rgba(244, 244, 244, 0.868);
+            left: 10%;
+            margin-top: 20.4%;
+            border-radius: 0px 0px 8px 8px;
+            text-align: left;
+            padding-left: 10px;
+            box-shadow: 5px 7px 7px 0px #00000023;
+            
+
+
+        }
+
+        .DPandPredictionHeading {
+            width: 49%;
+            height: auto;
+            position: absolute;
+            padding:3px 0px;
+            background-color:rgba(244, 244, 244, 0.868);
+            right: 10%;
+            margin-top: 17%;
+            border-radius: 8px 8px 0px 0px;
+            text-align: center;
+            box-shadow: 5px 7px 7px 0px #00000023;
+        }
+        
+        .DPandPrediction {
+            width: 49%;
+            height:50%;
+            position: absolute;
+            padding: 1px 0px;
+            background-color:rgba(244, 244, 244, 0.868);
+            right: 10%;
+            margin-top: 20.1%;
+            border-radius: 0px 0px 8px 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 5px 7px 7px 0px #00000023;
+            
+        }
+
+        .HistoryDetails {
+            width: 49%;
+            height:50%;
+            position: absolute;
+            padding: 18px 0px;
+            background-color:rgba(244, 244, 244, 0.868);
+            right: 10%;
+            margin-top: 20.4%;
+            border-radius: 0px 0px 8px 8px;
+            text-align: left;
+            padding-left: 10px;
+            box-shadow: 5px 7px 7px 0px #00000023;
+
+        }
+
+        .HistoryDetails2 {
+            width: 22%;
+            height:46%;
+            position: absolute;
+            padding: 18px 0px;
+            background-color:rgba(244, 244, 244, 0.868);
+            right: 10%;
+            margin-top: 21.9%;
+            border-radius: 0px 0px 8px 8px;
+            text-align: left;
+            padding-left: px;
+        }
+
+        .detailsHeading2 {
+            width: 30%;
+            height: auto;
+            position: absolute;
+            padding:3px 0px;
+            background-color:rgba(244, 244, 244, 0.868);
+            left: 10%;
+            margin-top: 700px;
+            border-radius: 8px 8px 0px 0px;
+            text-align: center;
+            box-shadow: 5px 7px 7px 0px #00000023;
+        }
+
+        .DPandPredictionHeading2 {
+            width: 49%;
+            height: auto;
+            position: absolute;
+            padding:3px 0px;
+            background-color:rgba(244, 244, 244, 0.868);
+            right: 10%;
+            margin-top: 700px;
+            border-radius: 8px 8px 0px 0px;
+            text-align: center;
+            box-shadow: 5px 7px 7px 0px #00000023;
+            
+        }
+
+        .afterPrediction {
+            width: 49%;
+            height:50%;
+            position: absolute;
+            padding: 18px 0px;
+            background-color:rgba(244, 244, 244, 0.868);
+            right: 10%;
+            margin-top: 750px;
+            border-radius: 0px 0px 8px 8px;
+            text-align: left;
+            padding-left: 10px;
+            box-shadow: 5px 7px 7px 0px #00000023;
+            margin-bottom: 50px;
+            
+        }
+
+        .toPredictionDiv {
+            width: 30%;
+            height:50%;
+            position: absolute;
+            padding: 18px 0px;
+            background-color:rgba(244, 244, 244, 0.868);
+            left: 10%;
+            margin-top: 750px;
+            border-radius: 0px 0px 8px 8px;
+            text-align: left;
+            padding-left: 10px;
+            box-shadow: 5px 7px 7px 0px #00000023;
+            
+        }
+
+        .step1Text {
+            font-size: medium;
+            font-weight: 500;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 2px;
+            margin-top: 10px;
+        }
+
+        .step3Text2 {
+            font-size: medium;
+            font-weight: 700;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 5px;
+            color: rgb(99, 236, 31);
+            border: 2px solid green;
+            width:350px;
+            margin-left: 200px;
+            
+        }
+
+        .PredictBtnDiv {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        margin-top: 30px;
+        margin-left: 25%;
+       }
+
+       .PredictBtnDiv2{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        margin-top: 19px;
+        margin-left: 37%;
+       }
+
+        .PredictBtn {
+        padding: 10px 40px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        background-color: #ffa125;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #ffffff;
+        border-radius: 8px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        border: 1px solid #555555;
+
+    }
+
+    .PredictBtn:hover{
+        background-color: #ffa125;
+        color: white;
+        border: 1px solid #ffa125;
+    }
+
+
+        .flexClass {
+            display:flex;
+            flex-direction:row;
+        }
+
+
+   
+
+
+        .footerspace {
+            margin-top: 76%;
+
+        }
+
+    .backimage{
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        top: 90%;
+        left: 93%;
+    }
+
+    .skinimage{
+        margin-left: 275px;
+        margin-top: 30px;
+    }
+    .swal-popup-class {
+    border-radius: 10px;
+    }
+
+    .swal-confirm-btn {
+        background-color: #3085d6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+    
+    </style>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+{% include 'patient_navbar.html' %}
+
+<form method="POST" action="/patient_newCase/">
+ {% csrf_token %}
+
+<div class="mainDiv"> <!-- main div full container-->
+    <p class="fw-semibold font-monospace text-center fs-2">NEW CASE</p>
+
+        
+
+        <div class="flexClass">
+
+                <div class="patientName">
+                  <div class="flexClass"><h4 class="sectionHeading">PATIENT NAME:   </h4>&nbsp;<h3>{{patient_firstname}}&nbsp; {{patient_secondname}}</h3></div>
+
+                </div>
+
+                <div class="caseNo">
+                    <div class="flexClass"> <h4 class="sectionHeading">CASES NO:   </h4>&nbsp;<h3   >{{case_no}}</h3></div>
+
+                </div>
+
+                <div class="caseNo">
+                    <div class="flexClass"> <h4 class="sectionHeading">PATIENT ID:   </h4>&nbsp;<h3>{{patient_id}}</h3> </div>
+
+                </div>
+
+
+        </div>
+
+    
+
+</div>
+
+<div class="flexClass">
+
+    
+
+    <div class="detailsHeading">
+        <h4 class="sectionHeading">DETAILS</h4>
+    </div>
+
+    <div class="details">
+        <div class="flexClass"><h4 class="sectionHeading">AGE:   </h4>&nbsp;<h3>{{patient_age}}</h3></div>
+        <div class="flexClass"><h4 class="sectionHeading">BIRTHDAY:   </h4>&nbsp;<h3>{{patient_dob}}</h3></div>
+        <div class="flexClass"><h4 class="sectionHeading">GENDER:   </h4>&nbsp;<h3>{{patient_gender}}</h3></div>
+        <div class="flexClass"><h4 class="sectionHeading">CIVIL STATUS:   </h4>&nbsp;<h3>{{patient_civilstatus}}</h3></div>
+        <div class="flexClass"><h4 class="sectionHeading">MOBILE NO:   </h4>&nbsp;<h3>{{patient_mobile}}</h3></div>
+        <div class="flexClass"><h4 class="sectionHeading">EMAIL:   </h4>&nbsp;<h3>{{patient_email}}</h3></div>
+    </div>
+
+
+        
+    <div class="DPandPredictionHeading">
+        <h4 class="sectionHeading">PATIENT HISTORY - STEP 2</h4>
+    </div>
+
+        <div class="flexClass">
+        <div class="HistoryDetails">
+
+        <div class="flexClass" class="sectionHeading">&nbsp;
+           
+        </div>
+        <BR>
+
+        <div class="flexClass"><h4 class="sectionHeading">Abdominal Problem?</h4>&nbsp;
+            <h3><input type="radio" required name="history1" value="Yes" id="input3">
+            <label class="form-check-label" for='input3'>Yes</label>&nbsp;
+            <input type="radio" name="history1" value="No" id="input4">
+            <label class="form-check-label" for='input4'>No</label><br></h3>
+        </div>
+        <BR>
+
+        <div class="flexClass"><h4 class="sectionHeading">Any Serious Injury?</h4>
+            &nbsp;<h3><input type="radio" required name="history2" value="Yes" id="input5">
+            <label class="form-check-label" for='input5'>Yes</label>&nbsp;
+            <input type="radio" name="history2" value="No" id="input6">
+            <label class="form-check-label" for='input6'>No</label><br></h3>
+        </div>
+        <BR>
+          
+        <div class="flexClass"><h4 class="sectionHeading">Asthma Problem?</h4>&nbsp;<h3>
+            <input type="radio" name="history3" required value="Yes" id="input7">
+            <label class="form-check-label" for='input7'>Yes</label> &nbsp;
+            <input type="radio" name="history3" value="No" id="input8">
+            <label class="form-check-label" for='input8'>No</label><br></h3>
+        </div>
+        <BR>
+          
+        <div class="flexClass"><h4 class="sectionHeading">Any Broken Bones?  </h4>&nbsp;
+            <h3><input type="radio" required name="history4" value="Yes" id="input9">
+            <label class="form-check-label" for='input9'>Yes</label>&nbsp;
+            <input type="radio" name="history4" value="No" id="input10">
+            <label class="form-check-label" for='input10'>No</label><br></h3>
+        </div>
+        <BR>
+
+            
+            
+        </div>
+
+        <div class="HistoryDetails2">
+            <div class="flexClass" class="sectionHeading">
+        </div>
+        <BR>
+
+        <div class="flexClass"><h4 class="sectionHeading">Heart Problem?
+            </h4>&nbsp;<h3><input type="radio" required name="history5" value="Yes" id="input13">
+            <label class="form-check-label" for='input13'>Yes</label> &nbsp;  
+            <input type="radio" name="history5" value="No" id="input14">
+            <label class="form-check-label" for='input14'>No</label><br></h3>
+        </div>
+        <BR>
+
+        <div class="flexClass"><h4 class="sectionHeading">Kidney Infection?   
+            </h4>&nbsp;<h3><input type="radio" required name="history6" value="Yes" id="input15">
+            <label class="form-check-label" for='input15'>Yes</label> &nbsp;  
+            <input type="radio" name="history6" value="No" id="input16">
+            <label class="form-check-label" for='input16'>No</label><br></h3>
+        </div>
+        <BR>
+
+        <div class="flexClass"><h4 class="sectionHeading">Skin Alergy?   
+            </h4>&nbsp;&nbsp;<h3><input type="radio" required name="history7" value="Yes" id="input17">
+            <label class="form-check-label" for='input17'>Yes</label> &nbsp;  
+            <input type="radio" name="history7" value="No" id="input18">
+            <label class="form-check-label" for='input18'>No</label><br></h3>
+        </div>
+        <BR>
+
+        <div class="flexClass"><h4 class="sectionHeading">Visited Doctor Before?
+            </h4>&nbsp;<h3><input type="radio" required name="history8" value="Yes" id="input19">
+            <label class="form-check-label" for='input19'>Yes</label> &nbsp;  
+            <input type="radio" name="history8" value="No" id="input20">
+            <label class="form-check-label" for='input20'>No</label><br></h3>
+        </div>
+        <BR>
+        
+            </div>
+        </div>
+        
+    
+
+</div>
+
+
+
+<!--Another flex class -->
+
+
+<div class="flexClass" id="bottommargin">
+
+    
+
+    <div class="detailsHeading2">
+        <h4 class="sectionHeading">STEP 1</h4>
+    </div>
+
+    <div class="toPredictionDiv">
+     <p class="step1Text">Upload your Dermascopic Image to our Prediction Model for the Prediction, so that we can submit Predicted Remarks to the Doctor attached with Patient Report!</p>
+     <div class="PredictBtnDiv">
+        <a type="button" href ="/patient_prediction/" class="PredictBtn">Predict Image Now</a>
+    </div>
+    </div>
+
+
+        
+    <div class="DPandPredictionHeading2">
+        <h4 class="sectionHeading">STEP 3</h4>  
+    </div>
+
+    <div class="flexClass">
+        <div class="afterPrediction">
+            <p class="step1Text">Prediction Remarks!</p>
+            <p class="step3Text2">Cancerous- {{model_prediction}}</p>
+            <div class="skinimage">
+            </div>
+            <div class="PredictBtnDiv2">
+                <button class="PredictBtn" type="button" onclick="showConsultAlert()">+ Consult Doctor</button>
+            </div>
+
+            
+        </div>
+
+
+    </div>
+        
+    
+
+        </div>
+    </div>
+        </form>
+ 
+{% endblock %}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+   
+  <title>Document</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+  }
+
+  .collapse {
+    margin-left: 28%;
+    text-align: center;
+  }
+
+  .nav-item .nav-link {
+    font-family: montserrat;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 0 10px;
+    text-align: center;
+    justify-content: center;
+    transition: all .6s ease;
+  }
+
+  .nav-item .nav-link:hover {
+    border: 1px;
+    border-color: rgb(2, 2, 2);
+    text-decoration: underline;
+    border-radius: 5px;
+    box-shadow: rgba(15, 12, 6, 0.2) 0px 0px 10px;
+  }
+
+  #AI {
+    color: white;
+  }
+
+  .navbar-brand {
+    font-family: montserrat;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 0 10px;
+    transition: all .9s ease;        
+  }
+
+  .navbar-brand:hover {
+    color: antiquewhite;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  .navbar {
+    height: 70px;
+  }
+
+  /* Responsive Styles */
+
+  @media (max-width: 768px) {
+    .collapse {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .navbar-brand {
+      font-size: 16px;
+    }
+
+    .nav-item .nav-link {
+      font-size: 16px;
+    }
+  }
+
+   .active a{
+
+    border:  1px solid;
+    border-color: aliceblue;
+
+  }
+</style>
+
+</head>
+<body>
+
+<!-- Navigation-Bar -->
+
+<nav class="navbar navbar-expand-lg bg-black">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand" href="/home/">Melanoma Detector System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item {% if request.path == '/home/' %} active {% endif %} ">
+          <a id='AI' class="nav-link active" aria-current="page" href="/home/">Home</a>
+        </li>
+
+        <li class="nav-item {% if request.path == '/signup-patient/' %} active {% endif %}">
+          <a class="nav-link" href="/admin_logout/">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</body>
+</html>

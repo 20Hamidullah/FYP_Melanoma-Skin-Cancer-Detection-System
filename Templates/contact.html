@@ -1,0 +1,164 @@
+{% extends 'MainTemplate.html' %}
+
+
+{% block links %} 
+
+{% load static%}
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+<!-- title and its icon -->   
+<link rel="shortcut" href="static/images/skinpic.jpg">
+<link rel="shortcut icon" href="{% static 'images/skinpic.jpg' %}">
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<style>
+  .contact-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .contact-form label,
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .contact-form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .contact-form button:hover {
+    background-color: #45a049;
+  }
+
+  .box {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .img {
+    width: 220px;
+    height: 250px;
+    border-radius: 20px;
+    margin-left: 55px;
+    margin-top: 10px;
+  }
+
+  .single-box {
+    position: relative;
+    left: 0%;
+    width: 350px;
+    height: 520px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Responsive Changes */
+  @media (max-width: 767px) {
+    .box {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .single-box {
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    .img {
+      margin-left: 0;
+      margin-bottom: 20px;
+    }
+
+    .contact-form {
+      width: 80%;
+      margin: 20px auto;
+    }
+  }
+</style>
+
+
+{% endblock %}
+
+
+{% block title %} Contact {% endblock %}
+
+
+{% block content %} 
+
+{% include 'nav.html' %}
+
+<div class="maindiv">
+
+        <div class="contact">
+        <div>
+            <h3>Contact Information:</h3>
+            <p>
+              If you have any questions or concerns, please feel free to reach out to us. Our team is here to assist you.
+            </p>
+            <p>If you find anything wrong, misleading, or have any questions,
+                please contact us. We always here to help.</p>
+          </div>
+        <div class="box">
+            <div class="single-box">
+                <div><img class="img" src="{% static 'images/SayedHamidullah.jpeg' %}" alt="wait"></div>
+                <h2 class="edit">Sayed Hamidullah</h2>
+                <p class="edit">AI/ Machine Learning models developer, Full-stack Web Developer <br>Contact: +923441976569<br>Email: 11hamidullah@gmail.com</p>
+             </div>
+             <div class="single-box">
+                <div ><img class="img" src="{% static 'images/hikmat.jpg' %}"  alt=""></div>
+                <h2 class="edit">Hikmat Ullah</h2>
+                <p class="edit">UI/ UX Developer, Backend Developer <br>Contact: 03037795551<br>Email: h.shinwari27@gmail.com</p>
+              
+             </div>
+             <div class="single-box">
+                <div><img class="img" src="{% static 'images/hammad.jpg' %}" alt="wait"></div>
+                <h2 class="edit">Hammad Khalil</h2>
+                <p class="edit">MEAN Full-stack Developer <br>Contact: 03490737227<br>Email: Hammadkhalil27@gmail.com</p>
+            
+             </div>    
+        </div>                     
+        <div>
+            
+        </div>
+
+    </div>
+
+</div>
+
+<div class="contact-form">
+    <h3>Send us a Message:</h3>
+    <form action="/submit" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+
+{% include 'footer.html' %}
+<div>
+
+{% endblock %}

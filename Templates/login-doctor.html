@@ -1,0 +1,107 @@
+{% extends 'MainTemplate.html' %}
+
+{% block links %} 
+
+{% load static %}
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+<link rel="shortcut" href="static/images/doctor.webp">
+<link rel="shortcut icon" href="static/images/doctor.webp"> 
+<link rel="stylesheet" href="{% static 'css/doctorlogin.css' %}">
+
+<style>
+
+body{
+    background:url('{% static "images/doctologin.jpg" %}');
+	height: 100vh;
+	width: 100%;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form{
+    width: 300px;
+    height: 500px;
+    position:relative;
+    top:5%;
+    left:10%;
+    margin-top:50px;
+    margin-bottom:82px;
+}
+
+.heading{
+    color:white;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 80px;
+    font-weight: 300;
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+.img2{
+
+    width: 80px;
+    height: 80px;
+    margin-left: 9px;
+    margin-top: -50px;
+    border-radius: 50px;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 40%;
+
+}
+.btn{
+    margin-left:40%;
+    margin-top:20px;
+}   
+.submain{
+    margin-top:85px;
+}
+
+
+</style>
+
+{% endblock %}
+
+
+{% block title %} Doctor Login {% endblock %}
+
+
+{% block content %} 
+
+{% include 'nav.html' %}
+
+    <form class="form" method="post" action="/login-doctor/">
+        {% csrf_token %}                
+        <h1 class="heading">LOGIN</h1>
+
+        <div class="submain">
+            <div class="imgedit">
+                <img class="img2" src="{% static 'images/doctor.webp' %}"/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email address</label>
+                <input name="email" type="email" class="form-control" placeholder="Type here..." required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input name="password" type="password" class="form-control" placeholder="Type here..." required>
+            </div>
+
+            <div><button name="submit" type="submit" class="btn btn-success">Log In</button></div>
+            <h3>{{error}}</h3>
+        </div>
+    </form>
+
+
+{% endblock %}

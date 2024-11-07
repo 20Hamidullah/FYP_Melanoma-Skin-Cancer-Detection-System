@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* Footer Css styleing */
+        footer{
+            background-color: rgb(50, 65, 129);
+            width: 100%;
+            padding: 20px;
+        }
+        
+        .atag {
+            color: lightgray;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            text-decoration: underline;
+        }
+
+        .atag:hover{
+            color: azure;
+            
+        }
+        
+        .atag:hover {
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .list_tag {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .flist {
+            margin-top: 20px;
+        }
+
+        .projectimg {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        #p1 {
+            color: lightgray;
+            max-width: 280px;
+        }
+
+        .soc {
+            width: 35px;
+            height: 35px;
+            margin: 5px;
+        }
+
+        .flex_class {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .flex_class > div {
+            flex: 1 0 100%;
+        }
+
+        @media (min-width: 768px) {
+            .flex_class > div {
+                flex: 1 0 50%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .flex_class > div {
+                flex: 1 0 25%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    {% load static %}
+    <footer>
+        <div class="flex_class">
+            <div class='img1'>
+                <div id="div2">
+                    <img class="projectimg" src="{% static 'images/skinpic.jpg' %}">
+                    <p id="p1">Melanoma Detector System will try to predict accurately skin cancer detection</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3">  <!-- is used for making the footer responsive-->
+                <ul style="list-style-type: none;" class="flist">
+                    <li class="list_tag"><a class="atag" href="/home/">Main</a></li>
+                    <li class="list_tag"><a class="atag" href="/Prediction/">Early Detection</a></li>
+                    <li class="list_tag"><a class="atag" href="#middle">How it works</a></li>
+                    <li class="list_tag"><a class="atag" href="https://www.techtarget.com/searchenterpriseai/definition/AI-Artificial-Intelligence">Artificial Intelligence</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-6 col-lg-3">
+                <ul style="list-style-type: none;" class="flist">
+                    <li class="list_tag"><a class="atag" href="/about_us/">About Us</a></li>
+                    <li class="list_tag"><a class="atag" href="/faq/">FAQ</a></li>
+                    <li class="list_tag"><a class="atag" href="/privacypolice/">Privacy Policy</a></li>
+                    <li class="list_tag"><a class="atag" href="/terms_of_use/">Terms of use</a></li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-lg-3">
+                <div class='flist'>
+                    <p style="color: lightgray;">For further information contact us</p>
+                    <a class="atag" href="mailto:h.shinwari27@gmail.com" target="_blank">AI_Doctor@gmail.com</a>
+                    
+                    <div class="w-100 col-12 col-lg-3">
+                        <a class="atag" href="#" target="_blank"><img class="soc" src="{% static 'images/facebook1.png' %}" /></a>
+                        <a class="atag" href="#" target="_blank"><img class="soc" src="{% static 'images/twitter.png' %}" /></a>
+                        <a class="atag" href="#" target="_blank"> <img class="soc" src="{% static 'images/instagram.png' %}" /></a> 
+                        <a class="atag" href="#" target="_blank"> <img class="soc" src="{% static 'images/linked.png' %}" /></a>
+                    </div>
+                </div>
+                        
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
+

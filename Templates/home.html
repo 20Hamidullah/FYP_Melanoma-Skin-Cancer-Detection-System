@@ -1,0 +1,180 @@
+{% extends 'MainTemplate.html' %}
+{% block title %} Melanoma Detector System {% endblock %}
+{% block links %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+	<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+ <!-- title and its icon -->
+	<title>AI-doctor</title>    
+	<link rel="shortcut" href="/static/images/skinpic.jpg">
+    <link rel="shortcut icon" href="/static/images/skinpic.jpg">
+	<link rel="stylesheet" href="/static/css/homestyle.css">
+{% endblock %}
+{% block content %} 
+
+{% include 'nav.html' %}
+
+<script>
+    function navigateToPredictionPage() {
+        // Set flag in localStorage to show SweetAlert
+        localStorage.setItem('showSweetAlert', 'true'); 
+
+        // Redirect to the new page
+        window.location.href = "Prediction.html"; 
+    }
+</script>
+
+<style>
+	
+    .detect{
+        display: flex;
+        flex-direction: row;
+        margin-left:15%;
+    }
+    
+    .total_detect{
+        
+        width: 270px;
+        height: 130px;
+        background:cornflowerblue;
+        border-radius: 10px;
+        box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        color: #f2f2f2;
+        font-weight: bold;
+        font-size: 20px;
+        margin: 45px;
+    
+    }
+    
+    .total_detect #detection_number{
+    
+        margin: auto;
+    
+    }
+    #disease{
+        margin: auto;
+    }
+
+	.carousel{
+
+background:url('/static/images/mainimg\ 5.09.15\ PM.jpg');
+height: 100vh;
+width: 100%;
+background-repeat: no-repeat;
+-webkit-background-size: cover;
+background-size: cover;
+background-position: center center;
+}
+</style>
+
+
+<div class="maindiv">
+	<a name="main" ></a>
+		<!-- Navigation bar and Main Image -->
+		<div class='carousel'>
+			<div class="slider-text">
+				<h2>Melanoma Skin<span> Cancer Detection</span></h2>
+				<a class="btn" href="/Prediction/" onclick="navigateToPredictionPage()">Detect Melanoma</a>
+			</div>
+
+		</div>
+
+		<!-- Main Contents -->
+		<div>
+			<div class="box">
+				<div class="single-box">
+					<div class="img"><img alt="Round_neck" src="/static/images/basalcell.jpg" id="img1"></div>
+					<h3>Basal Cell Carcinoma</h3>
+					<p>Basal Cell Carcinoma is one the type of skin cancer, which is in the type of a mole
+						It can be avoided by cutting the mole
+					</p>
+					
+					<a id="infbtn" target="_blank" href="https://dermnetnz.org/topics/basal-cell-carcinoma">Learn More</a>
+				</div>
+
+			<div class="single-box" id='single-box-id'>
+				<div class="img"><img alt="Round_neck" src="/static/images/Squamouscellcarcinoma.jpg" id="img1"></div>
+				<h3>Squamous Cell Carcinoma</h3>
+				<p>Squamous Cell Carcinoma is also a type of skin cancer, which spread very quickly with respect to 
+					Basal cell Carcinoma
+				</p>
+				<a id="infbtn" target="_blank" href="https://www.mayoclinic.org/diseases-conditions/squamous-cell-carcinoma/symptoms-causes/syc-20352480">Learn More</a>
+			</div>
+
+			<div class="single-box" id='single-box-id1'>
+				<div class="img"><img alt="Round_neck" src="/static/images/Melanoma.jpg" id="img1"></div>
+				<h3>Melanoma</h3>
+				<p>melanoma is one of the deadliest forms of skin cancer. 
+				it grows very fast and can spread to the lymph nodes or internal organs.</p>
+				<a id="infbtn" target="_blank" href="https://www.mayoclinic.org/diseases-conditions/melanoma/symptoms-causes/syc-20374884#:~:text=Melanoma%2C%20the%20most%20serious%20type,in%20your%20nose%20or%20throat.">Learn More</a>
+			</div>
+			
+			</div>
+
+			<a name="middle"></a>
+			<div class="instructions">
+				<div class="head">
+					<h1 style="margin:30px;">Instructions</h1>
+					<h2 style="margin:30px;">The patient will visit Laboratory for a dermoscopic image, 
+						the model will only accept a high resolution dermoscopic image for prediction.</h2>
+						<h2 style="margin:30px;">For saving humanity from death risk, share it with others</h2>
+				</div>
+				<img class="instruction_image" src="/static/images/skinCancer.jpg">
+
+			</div>
+
+			<div class="how_it_work">
+				<div class="head">
+					<h1 style="margin:30px;">This WebApp is platform independent</h1>
+					<h2 style="margin:30px;">You don't need to download it from app store or play store you can easily use it in any System</h2>
+				</div>
+				<img class="how_it_work_img" src="/static/images/cross-platform-technologies-solution.webp">
+			
+			</div>
+
+			<div class="instructions">
+				<img class="how_it_work_img" src="/static/images/ai1.jpg">
+				<div class="head">
+					<h1 style="margin-left: 20px;">How does Artificial Intelligence analyze images?</h1>
+					<p style="margin:20px;">AI Doctor uses a deep machine learning algorithm (AI-algorithm).
+						The human ability to learn from examples and experiences has been transferred to a computer.
+						For this purpose, the neural network has been trained using a dermoscopic imaging database 
+						containing tens of thousands of examples that have confirmed diagnosis and assessment by dermatologists. </p>
+
+					<p style="margin:20px;">Due to the productive cooperation with doctors, the quality of the algorithm performance is constantly being improved.
+							Based on growing experience and its own autonomous rules, the AI is able to distinguish between benign and malignant tumors,
+							find risks of human papillomavirus, and classify different types of acne…</p>
+			
+				</div>
+			</div>
+
+			<div class="detect" >
+				<div class="total_detect">
+			
+					<p id="detection_number">{{total_patients}}</p>
+					
+					<p id="disease">Registered Patients</p>
+				</div>
+				<div class="total_detect">
+					<p id="detection_number">{{total_prediction}}</p>
+					<p id="disease">Total Predictions</p>
+				</div>
+				<div class="total_detect">
+					<p id="detection_number">{{milagnant_pre}}</p>
+					<p id="disease">Milagnant Predictions</p>
+				</div>
+			</div>
+
+
+
+		</div>
+		{% include 'footer.html' %}
+		<div>
+		</div>
+
+	</div>
+{% endblock %}

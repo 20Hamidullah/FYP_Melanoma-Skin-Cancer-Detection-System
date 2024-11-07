@@ -1,0 +1,178 @@
+{% extends 'MainTemplate.html' %}
+{% block title %} Available Cases {% endblock %}
+
+
+{% block links %}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/doctorCase.css' %}">
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <title>Registerd Cases</title>
+    <link rel="shortcut" href="{% static 'images/doctor.webp' %}">
+    <link rel="shortcut icon" href="{% static 'images/doctor.webp' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ <style>
+
+    .skinImgSize{
+
+    width: 100px;
+    height: auto;
+    align-self: center;
+
+    }
+
+    
+
+    
+   
+</style>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <!-- \Remarks Table -->
+
+
+
+    {% include 'doctor_navbar.html' %}
+
+    <h2 style="color:	#C0C0C0;margin-top: 25px;">Scroll Down for Patient History</h2>
+
+    <div class="tablecss2">
+            <div class="headerdiv">
+                <h2>Available Cases</h2>
+            </div>
+        <div class="centerdiv">
+                <div class="responsive-div">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td class='tdFont'>Patient ID</td>
+                                <td class='tdFont'>Patient Name</td>
+                                <td class='tdFont'>Patient Email</td>
+                                <td class='tdFont'>Patient Mobile</td>
+                                <td class='tdFont'>Case No</td>
+                                <td class='tdFont'>Skin Image</td>
+                                <td class='tdFont'>Respond</td>
+                                <td class='tdFont'></td>
+                                <td class='tdFont'></td>
+                                <td class='tdFont'></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+
+
+                       
+                            {% for n in complete_query %}
+                            <tr>
+                                <td>{{n.patient_id}}</td>
+                                <td>{{n.patient_firstname}}</td>
+                                <td>{{n.patient_email}}</td>
+                                <td>{{n.patient_mobile}}</td>
+                                <td>{{n.case_no}}</td>
+                                <td><img class="skinImgSize" src="{{n.patient_image}}"></td>
+                                <td style="font-weight: bold">{{n.doctor_respond}}</td>
+                                <form method="post" action="/doc_available_cases/">
+                                    {% csrf_token %}
+                                    <td><button type="submit" value=" {{n.case_no}}" name="view_history"class="btn btn-outline-success">View History </button></td>
+                                </form>
+                                <td><a class="btn btn-outline-success" href="/doc_recommendation/?case_no={{n.case_no}}&patient={{n.patient_id}}">Submit Feedback</a></td>
+                                
+                                <td><a class="btn btn-outline-danger" href="/Delete_doctorCase/?case_no={{n.case_no}}">DELETE</a></td>
+                                
+                                <!-- <td><button type="submit" name="viewHistory" value="" class="btn btn-outline-info ">View History</button></td>
+                                <td><button class="btn btn-outline-success" type="submit">Submit Feedback</button></td> -->
+                                
+                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="undertablediv"><br><br></div>
+
+        </div>
+
+        <!-- Pateint History Table -->
+        
+            <!-- Content of the section -->
+        
+        <div class="tablecss2">
+            <div class="headerdiv">
+                <h2>Case History</h2>
+            </div>
+        <div class="centerdiv">
+                <!-- Content of the section -->
+        <form  method="post">
+                <div class="responsive-div">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td class='tdFont'>Case No</td>
+                                <td class='tdFont'>Model Prediction</td>
+                                <td class='tdFont'>Abdominal Problem</td>
+                                <td class='tdFont'>Heart Problem</td>
+                                <td class='tdFont'>Any Serious Injury</td>
+                                <td class='tdFont'>Kidney/Bladder Infection</td>
+                                <td class='tdFont'>Asthma</td>
+                                <td class='tdFont'>Seasonal Skin Alergy</td>
+                                <td class='tdFont'>Broken Bones</td>
+                                <td class='tdFont'>Visited Doctor Before</td>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+     
+                            {% for n in view_history_query %}
+                         <tr>
+                                <td>{{n.case_no}}</td>
+                                <td>{{n.model_prediction}}</td>
+                                <td>{{n.abdominalproblem}}</td>
+                                <td>{{n.heartproblem}}</td>
+                                <td>{{n.anyseriousinjury}}</td>
+                                <td>{{n.kidneybladderinfection}}</td>
+                                <td>{{n.asthma}}</td>
+                                <td>{{n.skinalergy}}</td>
+                                <td>{{n.brokenbones}}</td>
+                                <td>{{n.visiteddoctorbefore}}</td>
+                               
+                                
+                            </tr>
+                            {% endfor %}
+
+                            {% if view_history_query %}
+
+                            {{pass}}
+
+                            {% else %}
+                            <h4 style="margin-left: 2%; margin-bottom: 2%;">No Records</h4>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </form>
+
+                </div>
+            </div>
+
+            <div class="undertablediv"><br><br></div>
+    </div>
+
+    
+
+{% endblock %}

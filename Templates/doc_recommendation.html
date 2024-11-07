@@ -1,0 +1,128 @@
+{% extends 'MainTemplate.html' %}
+
+{% block links %}
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<!-- CSS only For Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+{% load static %}
+
+<style>
+    .carousel{
+
+        background:url('{% static "images/recommend.jpg" %}');
+        height: 100vh;
+        width: 100%;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+    }
+    .slider-text {
+	position: absolute;
+	top: 54%;
+	left: 50%;
+    border-radius:20px;
+	transform: translate(-50%, -50%);
+	text-align: center;
+    }
+    .slider-text h2 {
+	font-family: montserrat;
+	font-size: 55px;
+	margin: 0;
+	
+	text-transform: uppercase;
+    }
+    .slider-text h2 span {
+	color: white;
+    }
+
+    .slider-text a {
+	text-decoration: none;
+	background: blue;
+	color: black;
+	display: inline-block;
+	padding: 12px 45px;
+	margin: 15px;
+	text-transform: uppercase;
+	font-family: montserrat;
+	font-weight: 500;
+	border: 2px solid crimson;
+    }
+    .slider-text a.btn {
+	background-color: transparent;
+    }
+
+    .slider-text a.btn:hover {
+	background: black;
+    color:white;
+	border-radius: 20px;
+	border-color: crimson;
+	
+    }
+    .formdiv
+    {
+    margin-top:2%;
+    margin-bottom:2%;
+    width:60%;
+    margin-left:25%;
+    }
+    .inputfield
+    {
+    background: white;
+    color: black;
+    position: relative;
+    border: 1px solid crimson;
+    display: inline-block;
+    width:30%;
+    text-align: center;
+
+    }
+    .recommendationfield
+    {
+    background:white;
+    color: black;
+    position: relative;
+    border: 1px solid crimson;
+    display: inline-block;
+    width:100%; 
+    height:150px; 
+    border: 2px solid crimson;
+    }
+    
+    </style>
+
+{% endblock %}
+
+{% block title %} Doctor Recommendation {% endblock %}
+
+{% block content %}
+
+{% include 'doctor_navbar.html' %}
+
+<!-- carousel design-->
+    
+    <div class='carousel'>
+        <div class="slider-text">
+            <h2><span> Doctor Recommendation</span></h2>
+            <div class="formdiv">
+                    Patient ID: <br><input type="text" placeholder="patient id" disabled name="patientid" value="{{patient_id}}" class="inputfield" /><br>
+                    Patient Case Number: <br><input type="text" placeholder="case number" disabled class="inputfield" value="{{patient_case_no}}" name="casenumber" /><br>
+                    <form method="post" action="">   
+                        {% csrf_token %} 
+                    Doctor Recommendation: <br><textarea name="remarks_area" class="recommendationfield" placeholder="type recommendation..."></textarea>
+                    <input type="submit" class="btn btn-success mt-3" name="submit_btn" value="Submit FeedBack"></input>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

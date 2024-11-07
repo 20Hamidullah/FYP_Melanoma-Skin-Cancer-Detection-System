@@ -1,0 +1,119 @@
+{% extends 'MainTemplate.html' %}
+{% block title %} Doctor Recommendation {% endblock %}
+
+{% load static %}
+{% block links %}
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<!-- CSS only For Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 25px;
+      padding: 15px;
+      color: #333333;
+      text-align: center;
+    }
+
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #f3eeee;
+      padding: 20px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+    }
+
+    .form-field {
+      margin-bottom: 20px;
+    }
+
+    .form-field label {
+      display: block;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .form-field input{
+      width: 50%;
+      position: relative;
+      left: 110px;
+      text-align: center;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    .form-field textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+    }
+
+    .form-field textarea {
+      height: 170px;
+    }
+
+    .form-field button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+  </style>
+
+  {% endblock %}
+
+  
+  {% block content %}
+
+  {% include 'doctor_navbar.html' %}
+
+  <h1>Doctor Recommendation</h1>
+  <div class="form-container">
+      <div class="form-field">
+        <label for="patient-id">Patient ID:</label>
+        <input type="text" id="patient-id" value="{{patient_id}}" disabled name="patient-id" >
+      </div>
+      <div class="form-field">
+        <label for="case-number">Case Number:</label>
+        <input type="text" id="case-number" value="{{patient_case_no}}"  disabled name="case-number" >
+      </div>
+
+      <form method="post" action="">
+        {% csrf_token %}   
+        <div class="form-field">
+          <label for="recommendation">Doctor Recommendation:</label>
+          <textarea name="remarks_area" class="recommendationfield" placeholder="type recommendation..." required></textarea>
+        </div>
+        <div class="form-field">
+          <button type="submit" name="submit_btn">Submit</button>
+        </div>
+      </form>
+
+  </div>
+
+  {% endblock %}
+
